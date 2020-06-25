@@ -1,17 +1,20 @@
 
-Manuscript, supplementary material, R package, and additional codes for scDDboost,
-a methodology for scoring changes in the distribution of single-cell expression data.
+<b> About </b>
+
+scDDboost is an R package to analyze changes in the distribution of single-cell expression data between two experimental conditions.
+Compared to other methods that assess differential expression, scDDboost benefits uniquely from information conveyed by the clustering of cells into cellular subtypes.  Through a novel empirical Bayesian formulation it calculates gene-specific posterior probabilities that 
+the marginal expression distribution is the same (or different) between the two conditions.  The implementation in scDDboost treats gene-level expression data within each condition as a mixture of negative binomial distributions.  
 
 
-Due the limititation of file size, empirical data are available at:
+<b> Installation </b>
 
-https://drive.google.com/open?id=1RiBWxUhMfh7dduufjVBja6Rdy5V5MTPs
-
-
-
-To install the package:
+To install the R package:
 ```R
 # install.packages("devtools")
 devtools::install_github("wiscstatman/scDDboost")
 ```
-A brief tutorial and data examples can be found at Rpackage/vignette/scDDb.pdf. 
+A tutorial and examples can be found at Rpackage/vignette/scDDb.pdf. 
+
+<b> Paper </b>
+
+Ma, X., Korthauer, K., Kendziorski, C., and Newton, M. A. (2019). A Compositional Model To Assess Expression Changes From Single-Cell RNA-Seq Data.  <a href="https://www.biorxiv.org/content/10.1101/655795v1.abstract"> bioRxiv 655795 </a>
