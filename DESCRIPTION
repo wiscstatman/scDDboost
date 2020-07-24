@@ -9,6 +9,7 @@ Maintainer: Xiuyu Ma
 Description: modal cluster selecting genes for measuring similarities between cells, mixture double dirichlet prior combining with empirical bayesian method to find differential distributed genes.
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0)
+biocViews:
 Depends: EBSeq, BiocParallel, mclust, SingleCellExperiment, cluster
 LinkingTo: Rcpp, RcppEigen, BH
 SystemRequirements: c++11
