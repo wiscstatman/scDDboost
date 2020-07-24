@@ -13,8 +13,7 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{scDDboost}
 \packageIndices{scDDboost}
-~~ An overview of how to use the package, ~~
-~~ including the most important functions ~~
+Package used to score evidence of differential distribution in single-cell RNA-seq data
 }
 \author{
 \packageAuthor{scDDboost}
@@ -22,16 +21,16 @@ The DESCRIPTION file:
 Maintainer: \packageMaintainer{scDDboost}
 }
 \references{
-~~ Literature or other references for background information ~~
+https://www.biorxiv.org/content/10.1101/655795v1
 }
-~~ Optionally other standard keywords, one per ~~
-~~ line, from file KEYWORDS in the R documentation ~~
-~~ directory ~~
-\keyword{ package }
+\keyword{ Empirical Bayes, clustering, random weighting, local false discovery rate }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+https://github.com/wiscstatman/scDDboost/blob/master/DESCRIPTION
 }
 \examples{
-~~ simple examples of the most important functions ~~
+data(sim_dat)
+data_counts = assays(sim_dat)$count
+cd = colData(sim_dat)$conditions
+D_c = cal_D(data_counts,4)
+pDD = PDD(data_counts,cd,2,D_c)
 }
