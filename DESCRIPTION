@@ -10,7 +10,7 @@ Description: modal cluster selecting genes for measuring similarities between ce
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0), EBSeq, Oscope, BiocParallel, mclust, doParallel
 Depends: EBSeq, Oscope, BiocParallel, mclust, doParallel
-LinkingTo: Rcpp, RcppEigen
+LinkingTo: Rcpp, RcppEigen, BH
 SystemRequirements: c++11
 Roxygen: list(wrap=FALSE)
 RoxygenNote: 6.0.1
