@@ -1,3 +1,16 @@
+#' determine the number of clusters
+#'
+#' @param D distance matrix
+#' @param epi threshold for cutting off
+#' @return number of clusters
+#' @examples
+#' data(sim_dat)
+#' data_counts = assays(sim_dat)$count
+#' D_c = cal_D(data_counts,4)
+#' detK(D_c)
+
+#' @export
+
 detK = function(D, epi = 1)
 {
      intra = rep(0,8)
