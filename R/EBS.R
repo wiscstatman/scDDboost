@@ -7,7 +7,9 @@
 #' @param sf size factors
 #' @param iter maximum iteration step of EM
 #' @param hyper hyper parameters for beta distributions
-#' @param different pattern of partitions
+#' @param PP pattern of partitions
+#' @param stp1 step size of hyperparameter alpha (shared by all units) in one step EM
+#' @param stp2 step size of hyperparameter beta (unit specific) in one step EM
 #' @return posterior probability of mean expression pattern
 #' @export
 

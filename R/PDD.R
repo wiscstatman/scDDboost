@@ -7,11 +7,14 @@
 #' @param D distance matrix of cells or cluster of cells or a given clustering
 #' @param epi tol for change of validity score in determining number of clusters
 #' @param random boolean indicator of whether randomzation has been been implemented on distance matrix
+#' @param norm boolean indicator of whether the input expression data is normalized
 #' @param Upper bound for hyper parameters optimization
 #' @param nrandom number of random generated distance matrix
 #' @param iter max number of iterations for EM
 #' @param reltol relative tolerance for optim on weighting paramters
-#' @param K number of subtypes, could be user specified or determined internally
+#' @param stp1 step size of hyperparameter alpha (shared by all units) in one step EM
+#' @param stp2 step size of hyperparameter beta (unit specific) in one step EM
+#' @param K number of subtypes, could be user specified or determined internally(set to 0)
 #' @return posterior probabilities of a gene to be differential distributed
 
 #' @examples

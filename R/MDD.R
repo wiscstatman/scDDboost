@@ -1,4 +1,10 @@
-
+#' log likelihood of aggregated multinomial counts z given aggregated proportions t
+#'
+#' @param z counts of each group in one condition
+#' @param pp a partition
+#' @param alpha parameter of double dirichlet prior
+#' @return log likelihood of aggregated multinomial counts z given aggregated proportions t
+#' @export
 
 ##no beta
 lpzgt <- function(z,pp,alpha)
@@ -14,6 +20,17 @@ lpzgt <- function(z,pp,alpha)
     ##res <- sum(lgamma(tt+alpha_b)) + sum(lgamma(nn)) - sum(lgamma(tt+nn))
     res
 }
+
+
+#' log likelihood of z1,z2 given t1,t2
+#'
+#' @param z1 counts of each group in condition 1
+#' @param z2 counts of each group in condition 2
+#' @param pp a partition
+#' @param alpha1 parameter of double dirichlet prior
+#' @param alpha2 parameter of double dirichlet prior
+#' @return log likelihood of z1,z2 given t1,t2
+#' @export
 
 ##beta equals sum over alpha1 and alpha2
 lpt1t2 <- function(z1,z2,pp,alpha1,alpha2)
@@ -37,6 +54,8 @@ lpt1t2 <- function(z1,z2,pp,alpha1,alpha2)
 #' @param z1 counts of each group in condition 1
 #' @param z2 counts of each group in condition 2
 #' @param pat partition patterns
+#' @param alpha1 parameter of double dirichlet prior
+#' @param alpha2 parameter of double dirichlet prior
 #' @return posterior of proportion change
 #' @export
 

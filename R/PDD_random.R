@@ -6,13 +6,14 @@
 #' @param K number of subgroups
 #' @param D distance matrix of cells
 #' @param a shape param for weights
-#' @param b rate param for weights
 #' @param sz size factors 
 #' @param hp hyper parameters for EBSeq
 #' @param Posp parition patterns
 #' @param iter max number of iterations for EM in EBSeq
 #' @param REF refinement relation matrix
-#' @param random seed
+#' @param stp1 step size of hyperparameter alpha (shared by all units) in one step EM
+#' @param stp2 step size of hyperparameter beta (unit specific) in one step EM
+#' @param seed seed for random weights
 #' @return posterior probabilities under random distance matrix
 #' @export
 
