@@ -350,7 +350,7 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
 //        DATA init(data,conditions,sf);    
     DC init(data, conditions, sf, gclus, Part);
     
-    cout<<"first init"<<endl;
+//    cout<<"first init"<<endl;
 
     vector<MatrixXd> A = init.cal_gm(alpha,beta);
     
@@ -360,7 +360,7 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     
     //double dBeta = init.cal_drv(A[2]);
     
-    cout<<"cal_gm done"<<endl;
+//    cout<<"cal_gm done"<<endl;
     
     VectorXd tm_p(init.PT);
     
@@ -409,7 +409,7 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
         ++o;
     }
     
-    cout<<"final done"<<endl;
+//    cout<<"final done"<<endl;
 
     return Rcpp::List::create(Named("DEpattern")=init.gm,Named("r")=init.r,Named("p")=init.p,Named("iteration")=o,Named("Alpha") = alpha, Named("Beta") = beta, Named("obj") = A[0] * init.p);
     

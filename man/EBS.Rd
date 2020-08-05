@@ -19,7 +19,11 @@ EBS(data, conditions, gclus, sf, iter = 10, hyper, PP, stp1, stp2)
 
 \item{hyper}{hyper parameters for beta distributions}
 
-\item{different}{pattern of partitions}
+\item{PP}{pattern of partitions}
+
+\item{stp1}{step size of hyperparameter alpha (shared by all units) in one step EM}
+
+\item{stp2}{step size of hyperparameter beta (unit specific) in one step EM}
 }
 \value{
 posterior probability of mean expression pattern

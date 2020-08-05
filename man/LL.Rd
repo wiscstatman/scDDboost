@@ -9,9 +9,9 @@ LL(param, x, d0)
 \arguments{
 \item{param}{parameters to be determined by MLE}
 
-\item{d0}{rate parameter of prior of 1 / true distance}
+\item{x}{distance matrix of cells}
 
-\item{D}{distance matrix of cells}
+\item{d0}{rate parameter of prior of 1 / true distance}
 }
 \value{
 return hyperparameteres a.

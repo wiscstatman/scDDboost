@@ -27,9 +27,11 @@ PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2, seed)
 
 \item{REF}{refinement relation matrix}
 
-\item{b}{rate param for weights}
+\item{stp1}{step size of hyperparameter alpha (shared by all units) in one step EM}
 
-\item{random}{seed}
+\item{stp2}{step size of hyperparameter beta (unit specific) in one step EM}
+
+\item{seed}{seed for random weights}
 }
 \value{
 posterior probabilities under random distance matrix

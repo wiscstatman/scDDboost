@@ -4,9 +4,22 @@
 \alias{PDD}
 \title{calculate posterior probabilities of a gene to be differential distributed}
 \usage{
-PDD(data, cd, ncores, D, random = T, norm = T, epi = 1, Upper = 1000,
-  nrandom = 30, iter = 20, reltol = 0.001, stp1 = 1e-06, stp2 = 0.01,
-  K = 0)
+PDD(
+  data,
+  cd,
+  ncores,
+  D,
+  random = T,
+  norm = T,
+  epi = 1,
+  Upper = 1000,
+  nrandom = 50,
+  iter = 20,
+  reltol = 0.001,
+  stp1 = 1e-06,
+  stp2 = 0.01,
+  K = 0
+)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
@@ -19,6 +32,8 @@ PDD(data, cd, ncores, D, random = T, norm = T, epi = 1, Upper = 1000,
 
 \item{random}{boolean indicator of whether randomzation has been been implemented on distance matrix}
 
+\item{norm}{boolean indicator of whether the input expression data is normalized}
+
 \item{epi}{tol for change of validity score in determining number of clusters}
 
 \item{Upper}{bound for hyper parameters optimization}
@@ -29,7 +44,11 @@ PDD(data, cd, ncores, D, random = T, norm = T, epi = 1, Upper = 1000,
 
 \item{reltol}{relative tolerance for optim on weighting paramters}
 
-\item{K}{number of subtypes, could be user specified or determined internally}
+\item{stp1}{step size of hyperparameter alpha (shared by all units) in one step EM}
+
+\item{stp2}{step size of hyperparameter beta (unit specific) in one step EM}
+
+\item{K}{number of subtypes, could be user specified or determined internally(set to 0)}
 }
 \value{
 posterior probabilities of a gene to be differential distributed

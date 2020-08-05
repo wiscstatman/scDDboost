@@ -4,7 +4,9 @@
 \name{sim_dat}
 \alias{sim_dat}
 \title{scDDboost}
-\format{An object of class \code{"list"}.}
+\format{
+An object of class \code{"list"}.
+}
 \usage{
 data(sim_dat)
 }

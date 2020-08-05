@@ -12,6 +12,10 @@ MDD(z1, z2, pat, alpha1, alpha2)
 \item{z2}{counts of each group in condition 2}
 
 \item{pat}{partition patterns}
+
+\item{alpha1}{parameter of double dirichlet prior}
+
+\item{alpha2}{parameter of double dirichlet prior}
 }
 \value{
 posterior of proportion change
