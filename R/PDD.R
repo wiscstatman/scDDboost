@@ -30,6 +30,11 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
     #data(ref.RData)
     
     G = nrow(data)
+    
+    rname = rownames(data)
+    if(is.null(rname)){
+        rname = sapply(1:G,function(x) paste0("gene",x))
+    }
     rs = rowSums(data)
     zGene = which(rs == 0)
     message(paste0(length(zGene), " genes are all zero counts, not being considered in DD analysis"))
@@ -171,6 +176,8 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
         PDD = rowSums(boot) / nrandom
         res = rep(0,G)
         res[selected] = PDD
+        
+        names(res) = rname
         
         return (res)
     }

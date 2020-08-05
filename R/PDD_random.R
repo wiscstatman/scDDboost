@@ -15,6 +15,7 @@
 #' @param stp2 step size of hyperparameter beta (unit specific) in one step EM
 #' @param seed seed for random weights
 #' @return posterior probabilities under random distance matrix
+#' @keywords internal
 #' @export
 
 PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2,seed){
