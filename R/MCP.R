@@ -1,12 +1,12 @@
 
-#' modal-cluster for poisson gamma model
-#'
-#' @param x an integer vector
-#' @param y mass parameter
-#' @param z shape and scale parameters for gamma distribution
-#' @return cluster of x
-#' @examples
-#' MCP(1:10)
+## ------------------------------------------------------------------------------------
+##          Internal function -- modal-cluster for poisson gamma model
+## ------------------------------------------------------------------------------------
+
+## x an integer vector
+## y mass parameter
+## z shape and scale parameters for gamma distribution
+## return cluster of x
 
 MCP <- function(x,y = 1,z = c(1,1)) {
     if(!is.vector(x)){

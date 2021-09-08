@@ -50,10 +50,6 @@ pie +
     panel.grid.major.x = element_line(size = 0.5),
     panel.grid.major.y = element_line(size = 0.5),
     panel.grid.major = element_line(colour = "grey"))
-
-
-
-
 ```
 
 Proportions of subtypes 1 and 2 changed between the 2 conditions. 
@@ -112,6 +108,10 @@ p + theme(panel.background = element_rect(
     panel.grid.major.x = element_line(size = 0.5),
     panel.grid.major.y = element_line(size = 0.5),
     panel.grid.major = element_line(colour = "grey"))
+
+
+
+
 
 ```
 
