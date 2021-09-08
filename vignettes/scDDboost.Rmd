@@ -3,7 +3,7 @@ title: "scDDboost"
 author: "Xiuyu Ma"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Clustering Deviation Index (CDI) Tutorial}
+  %\VignetteIndexEntry{scDDboost Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
