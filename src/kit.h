@@ -76,7 +76,5 @@ bool myfn(const component & a, const component & b) { return (a.logdensity+a.log
 //        ++val;
 //    }
 //}
-
-
-
 #endif
+
