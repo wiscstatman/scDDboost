@@ -15,4 +15,3 @@ LinkingTo: Rcpp, RcppEigen, BH
 SystemRequirements: c++11
 Roxygen: list(wrap=FALSE)
 RoxygenNote: 7.1.0
-VignetteBuilder: knitr

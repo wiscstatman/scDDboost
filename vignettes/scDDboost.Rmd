@@ -1,18 +1,11 @@
 ---
 title: "scDDboost"
-author: "Xiuyu Ma, Keegan Korthauerz, Christina
-Kendziorski, and Michael A. Newton"
-output:
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
-  html_document:
-    highlight: tango
-    number_sections: yes
-    theme: united
-    toc: yes
-    toc_depth: 3
-data: 1/19/2017
+author: "Xiuyu Ma"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Clustering Deviation Index (CDI) Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 __Abstract:__
 
