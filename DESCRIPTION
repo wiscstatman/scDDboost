@@ -1,12 +1,12 @@
 Package: scDDboost
 Type: Package
-Title: Identifying differential distributed genes for single cell RNA data
-Version: 2.0
+Title: A compositional model to assess expression changes from single-cell rna-seq data
+Version: 2.0.0
 Date: 2017-11-11
 Author: Xiuyu Ma
 Maintainer: Xiuyu Ma
      <watsonforfun@gmail.com>
-Description: modal cluster selecting genes for measuring similarities between cells, mixture double dirichlet prior combining with empirical bayesian method to find differential distributed genes.
+Description: scDDboost is an R package to analyze changes in the distribution of single-cell expression data between two experimental conditions. Compared to other methods that assess differential expression, scDDboost benefits uniquely from information conveyed by the clustering of cells into cellular subtypes. Through a novel empirical Bayesian formulation it calculates gene-specific posterior probabilities that the marginal expression distribution is the same (or different) between the two conditions. The implementation in scDDboost treats gene-level expression data within each condition as a mixture of negative binomial distributions.
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0)
 biocViews:
