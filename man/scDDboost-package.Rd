@@ -29,8 +29,9 @@ https://github.com/wiscstatman/scDDboost/blob/master/DESCRIPTION
 }
 \examples{
 data(sim_dat)
-data_counts = assays(sim_dat)$count
-cd = colData(sim_dat)$conditions
+dat = extractInfo(sim_dat)
+data_counts = dat$count_matrix
+cd = dat$condition
 D_c = cal_D(data_counts,4)
 pDD = PDD(data_counts,cd,2,D_c)
 }
