@@ -19,6 +19,7 @@ calculate distance matrix
 }
 \examples{
 data(sim_dat)
-data_counts = assays(sim_dat)$count
+dat = extractInfo(sim_dat)
+data_counts = dat$count_matrix
 D_c = cal_D(data_counts,4)
 }
