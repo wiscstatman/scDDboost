@@ -1,14 +1,18 @@
 #' extract count matrix from SingleCellExperiment object
 #'
 #'@param data SingleCellExperiment object
-#'@return count matrix
+#'@return list of count matrix and condition vector
 #'
 
 
-scToMatrix = function(data){
+extractInfo = function(data){
     if(class(data)[1] != 'SingleCellExperiment'){
         stop("input data must be SingleCellExperiment Object")
     }
     data_counts = assays(data)$count
-    return(data_counts)
+    cd = colData(data)$conditions
+    res = list()
+    res[['count_matrix']] = data_counts
+    res[['condition']] = cd
+    return(res)
 }
