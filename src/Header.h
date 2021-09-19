@@ -6,8 +6,8 @@
 //  Copyright © 2017 MaXiuyu. All rights reserved.
 //
 
-#ifndef Header_hpp
-#define Header_hpp
+#ifndef Header_h
+#define Header_h
 
 #include <stdio.h>
 #include <algorithm>
@@ -36,4 +36,4 @@ Sum rc(MatrixXd x,MatrixXd r, vector<V> pos);
 
 
 
-#endif /* Header_hpp */
+#endif /* Header_h */

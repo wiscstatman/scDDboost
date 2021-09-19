@@ -6,7 +6,7 @@
 //  Copyright © 2017 MaXiuyu. All rights reserved.
 //
 
-#include "derived.hpp"
+#include "derived.h"
 
 DC::DC(MatrixXd& data, VectorXi& conditions, VectorXd& sf, vector<int>& g_clus, MatrixXi& PP):DATA(data, conditions, sf, PP){
     //initial gene cluster label (currently treat each gene independently)

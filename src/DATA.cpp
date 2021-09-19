@@ -6,7 +6,7 @@
 //  Copyright © 2017 MaXiuyu. All rights reserved.
 //
 
-#include "DATA.hpp"
+#include "DATA.h"
 
 vector<MatrixXd> DATA::reorg(MatrixXd& data, const VectorXi& conditions){
     vector<MatrixXd> tmp;

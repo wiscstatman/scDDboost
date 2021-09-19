@@ -39,3 +39,4 @@ posterior probabilities under random distance matrix
 \description{
 calculate PDD when add random noise in distance matrix
 }
+\keyword{internal}

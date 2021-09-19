@@ -1,5 +1,5 @@
-#ifndef DATA_hpp
-#define DATA_hpp
+#ifndef DATA_h
+#define DATA_h
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -12,7 +12,7 @@
 using namespace std;
 using namespace Eigen;
 typedef vector<int> V;
-#include "Header.hpp"
+#include "Header.h"
 
 struct r_q{
     MatrixXd rrr;
@@ -67,4 +67,4 @@ public:
     ~DATA();
 };
 
-#endif /* DATA_hpp */
+#endif /* DATA_h */

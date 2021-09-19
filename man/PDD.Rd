@@ -58,7 +58,7 @@ calculate posterior probabilities of a gene to be differential distributed
 }
 \examples{
 data(sim_dat)
-data_counts = assays(sim_dat)$count
+data_counts = scToMatrix(sim_dat)
 cd = colData(sim_dat)$conditions
 D_c = cal_D(data_counts,4)
 pDD = PDD(data_counts,cd,2,D_c)

@@ -6,11 +6,11 @@
 //  Copyright © 2017 MaXiuyu. All rights reserved.
 //
 
-#ifndef derived_hpp
-#define derived_hpp
+#ifndef derived_h
+#define derived_h
 
 #include <stdio.h>
-#include "DATA.hpp"
+#include "DATA.h"
 #include <boost/math/special_functions/digamma.hpp>
 
 class DC:public DATA{
@@ -49,4 +49,4 @@ public:
 
 
 
-#endif /* derived_hpp */
+#endif /* derived_h */

@@ -17,8 +17,8 @@
 #include <cstdlib>
 #include <sys/types.h>
 #include <sys/sysctl.h>
-#include "DATA.hpp"
-#include "derived.hpp"
+#include "DATA.h"
+#include "derived.h"
 #include "kit.h"
 
 using namespace std;
