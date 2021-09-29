@@ -12,7 +12,7 @@ g_cl = function(data, ncores){
     tryCatch(
     {
         sz = rep(1, ncol(data))
-        MV<-CalcMV(data,Sizes = sz, Plot = F)
+        MV<-CalcMV(data,Sizes = sz, Plot = FALSE)
         Phi_mdf<-MV$Phi_mdf
         Q_mdf<-MV$Q_mdf
         bt<-1/Q_mdf-1
