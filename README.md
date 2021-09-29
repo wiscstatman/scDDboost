@@ -17,4 +17,6 @@ A tutorial and examples can be found at Rpackage/vignette/scDDb.pdf.
 
 <b> Paper </b>
 
-Ma, X., Korthauer, K., Kendziorski, C., and Newton, M. A. (2019). A Compositional Model To Assess Expression Changes From Single-Cell RNA-Seq Data.  <a href="https://www.biorxiv.org/content/10.1101/655795v1.abstract"> bioRxiv 655795 </a>
+Ma, X., Korthauer, K., Kendziorski, C., and Newton, M. A. (2019). A Compositional Model To Assess Expression Changes From Single-Cell RNA-Seq Data. 
+The Annals of Applied Statistics 15, no. 2 (2021): 880-901.  DOI: 10.1214/20-AOAS1423.  Formerly, <a href="https://www.biorxiv.org/content/10.1101/655795v1.abstract"> bioRxiv 655795 </a>
+
