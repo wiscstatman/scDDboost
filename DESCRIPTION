@@ -1,7 +1,7 @@
 Package: scDDboost
 Type: Package
 Title: A compositional model to assess expression changes from single-cell rna-seq data
-Version: 1.0.0
+Version: 0.99.0
 Date: 2017-11-11
 Author: Xiuyu Ma
 Maintainer: Xiuyu Ma
