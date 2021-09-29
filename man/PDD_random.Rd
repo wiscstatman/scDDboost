@@ -4,7 +4,7 @@
 \alias{PDD_random}
 \title{calculate PDD when add random noise in distance matrix}
 \usage{
-PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2, seed)
+PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
@@ -30,8 +30,6 @@ PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2, seed)
 \item{stp1}{step size of hyperparameter alpha (shared by all units) in one step EM}
 
 \item{stp2}{step size of hyperparameter beta (unit specific) in one step EM}
-
-\item{seed}{seed for random weights}
 }
 \value{
 posterior probabilities under random distance matrix

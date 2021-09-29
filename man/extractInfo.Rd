@@ -15,3 +15,7 @@ list of count matrix and condition vector
 \description{
 extract count matrix from SingleCellExperiment object
 }
+\examples{
+data(sim_dat)
+dat = extractInfo(sim_dat)
+}

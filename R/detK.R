@@ -18,7 +18,7 @@ detK = function(D, epi = 1)
      inter = rep(0,8)
     
      for(i in 2:9){
-         clusRes = pam(D,i,diss = T)
+         clusRes = pam(D,i,diss = TRUE)
          intra[i - 1] = as.numeric(clusRes$objective[1])
          x = clusRes$id.med
          #inter[i - 1] = sum(D[x,x]) / (i * (i - 1))

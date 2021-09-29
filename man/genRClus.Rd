@@ -4,7 +4,7 @@
 \alias{genRClus}
 \title{generate random clusterings}
 \usage{
-genRClus(D, a, K, seed)
+genRClus(D, a, K)
 }
 \arguments{
 \item{D}{distance matrix of cells}
@@ -12,8 +12,6 @@ genRClus(D, a, K, seed)
 \item{a}{paramter for weights}
 
 \item{K}{number of subtypes}
-
-\item{seed}{seed for randomness}
 }
 \value{
 random generated clustering of cells

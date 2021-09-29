@@ -15,3 +15,6 @@ all possible partition of K elements
 \description{
 generating partition patterns
 }
+\examples{
+pat(3)
+}

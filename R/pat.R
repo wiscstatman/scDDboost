@@ -3,7 +3,10 @@
 #'
 #' @param K number of elements
 #' @return all possible partition of K elements
+#' @examples
+#' pat(3)
 
+#' @export
 
 
 pat<-function(K){

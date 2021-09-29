@@ -3,7 +3,11 @@
 #'@param data SingleCellExperiment object
 #'@return list of count matrix and condition vector
 #'
+#' @examples
+#' data(sim_dat)
+#' dat = extractInfo(sim_dat)
 
+#' @export
 
 extractInfo = function(data){
     if(class(data)[1] != 'SingleCellExperiment'){

@@ -27,7 +27,7 @@
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, nrandom = 50, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
+PDD = function(data, cd, ncores,D, random = TRUE, norm = TRUE, epi = 1, Upper = 1000, nrandom = 50, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
     #data(ref.RData)
     
     G = nrow(data)
@@ -83,7 +83,7 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
             }
             
             message(paste0("estimated number of subtypes: ",K))
-            ccl = pam(D, k = K, diss = T)$clustering
+            ccl = pam(D, k = K, diss = TRUE)$clustering
         }
         else{
             if(is.numeric(D))
@@ -166,7 +166,7 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
         #message(paste0("param of weights: ", a1))
         
         bp <- BiocParallel::MulticoreParam(ncores)
-        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF,stp1,stp2, i)}, BPPARAM = bp)
+        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF,stp1,stp2)}, BPPARAM = bp)
         
         
         boot = matrix(0,nrow=length(result[[1]]),ncol = nrandom)

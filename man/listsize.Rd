@@ -17,3 +17,7 @@ number of positive genes
 \description{
 number of DD genes under FDR control
 }
+\examples{
+p_dd = c(0.1,0.99,1,0.05,0.05)
+listsize(p_dd)
+}
