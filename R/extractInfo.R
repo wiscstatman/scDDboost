@@ -10,7 +10,7 @@
 #' @export
 
 extractInfo = function(data){
-    if(class(data)[1] != 'SingleCellExperiment'){
+    if(!is(data,"SingleCellExperiment")){
         stop("input data must be SingleCellExperiment Object")
     }
     data_counts = assays(data)$count
