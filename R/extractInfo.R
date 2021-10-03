@@ -4,7 +4,7 @@
 #'@return list of count matrix and condition vector
 #'
 #' @examples
-#' data(sim_dat)
+#' data(sim_dat) 
 #' dat = extractInfo(sim_dat)
 
 #' @export
