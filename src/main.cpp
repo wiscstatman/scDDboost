@@ -16,7 +16,7 @@
 #include <limits>
 #include <cstdlib>
 #include <sys/types.h>
-#include <sys/sysctl.h>
+//#include <sys/sysctl.h>
 #include "DATA.h"
 #include "derived.h"
 #include "kit.h"
