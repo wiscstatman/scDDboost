@@ -13,7 +13,7 @@ To install the R package:
 # install.packages("devtools")
 devtools::install_github("wiscstatman/scDDboost")
 ```
-A tutorial and examples can be found at Rpackage/vignette/scDDb.pdf. 
+A tutorial and examples can be found at Rpackage/vignette/ 
 
 <b> Paper </b>
 
