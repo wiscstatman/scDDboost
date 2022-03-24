@@ -62,7 +62,7 @@ lpt1t2 <- function(z1,z2,pp,alpha1,alpha2)
 MDD = function(z1, z2, pat, alpha1, alpha2){
     np = nrow(pat)
     lpz <- numeric( np )
-    for( j in 1:nrow(pat) )
+    for( j in seq_len(1,nrow(pat)) )
     {
         pp <- pat[j,]
         lpz[j] <- lpzgt(z1,pp,alpha1)+lpzgt(z2,pp,alpha2)+lpt1t2(z1,z2,pp,alpha1,alpha2)

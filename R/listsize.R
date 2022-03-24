@@ -16,7 +16,7 @@ listsize <- function(pDD, FDR=0.01)
     
     oe <- sort(ee)
     
-    ff <- cumsum(oe)/(1:length(oe))
+    ff <- cumsum(oe)/seq_len(1,length(oe))
     
     return( sum( ff <= FDR ) )
     
