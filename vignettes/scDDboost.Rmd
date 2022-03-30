@@ -143,15 +143,14 @@ this example data, that variable is the `condition` variable. Note that the inpu
 to be a matrix of normalized counts.
 We run the function PDD 
 ```{r}
-suppressMessages(library(SummarizedExperiment))
-data_counts = assays(sim_dat)$counts
-conditions = colData(sim_dat)$conditions
-rownames(data_counts) = 1:1000
+data_counts <- assays(sim_dat)$counts
+conditions <- colData(sim_dat)$conditions
+rownames(data_counts) <- seq_len(1000)
 
 ##here we use 1 core to compute the distance matrix
-D_c = cal_D(data_counts,1)
+D_c <- cal_D(data_counts,1)
 
-pdd = PDD(data = data_counts,cd = conditions, ncores = 1, D = D_c)
+pdd <- PDD(data = data_counts,cd = conditions, ncores = 1, D = D_c)
 ```
 There are 4 input parameters needed to be specified by user, the dataset, the condition label, number of cpu cores used for computation and a distance matrix
 of cells. Other input parameters have default settings.
@@ -165,7 +164,7 @@ For the number of sutypes, we provide a default function `detK`, which consider 
 If user have other ways to determine $K$, $K$ should be specified in `PDD`. 
 ```{r}
 ## determine the number of subtypes
-K = detK(D_c)
+K <- detK(D_c)
 ```
 
 
