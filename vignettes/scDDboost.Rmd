@@ -1,9 +1,8 @@
 ---
 title: "scDDboost"
-author: 
--"Xiuyu Ma"
--"Michael A. Newton"
-output: BiocStyle::html_document
+author: "Xiuyu Ma" 
+output: 
+  BiocStyle::html_document
 vignette: >
   %\VignetteIndexEntry{scDDboost Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
@@ -14,12 +13,21 @@ __Abstract:__
 The scDDboost package is designed to identifying distributional changes for transcripts measured by single-cell RNA-seq. It uses mixture model for gene expression, which accounts for cellular heterogeneity and unique varaitional property underlying the data.
 
 
-__Package__
-scDDboost 1.0.0
-Report issues on "github link here"
+__Package:__
 
-1.Introduction
----------------
+Issue can be reported at "https://github.com/wiscstatman/scDDboost/issues"
+
+##Installation
+
+The package can be installed from bioconductor
+```{r,eval=FALSE}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("scDDboost")
+```
+
+
+##Introduction
 scDDboost scores evidence of a gene being differentially distributed(DD) across two conditions for single cell RNA-seq data. Higher resolution brings several chanllenges for analyzing the data, specifically, the distribution of gene expression tends to have high prevalence of zero and multi-modes.
 To account for those characteristics and utilizing some biological intuition,
 we view the expression values sampled from a pool of cells mixed by distinct cellular subtypes blind to condition label. Consequently, the distributional change can be fully determined by the
@@ -48,7 +56,7 @@ pie +
 ```
 
 Proportions of subtypes 1 and 2 changed between the 2 conditions. 
-The gene is not DD if subtype 1 and 2 have the same expression level\newline
+The gene is not DD if subtype 1 and 2 have the same expression level
 
 ```{r,echo = F}
 x1 = rnorm(33,10,2)
@@ -76,8 +84,8 @@ p + theme(panel.background = element_rect(
     panel.grid.major.y = element_line(size = 0.5),
     panel.grid.major = element_line(colour = "grey"))
 ```
-\newpage
-For subtype 1 and 2 have different expression level, there is different distribution\newline
+
+For subtype 1 and 2 have different expression level, there is different distribution
 ```{r, echo = F}
 x1 = rnorm(33,10,2)
 x2 = rnorm(33,20,2)
@@ -113,8 +121,7 @@ p + theme(panel.background = element_rect(
 
 
 
-2. Posterior probability of a gene being DD 
----------------
+##Posterior probability of a gene being DD 
 
 
 `PDD` is the core function developed to quantify the
@@ -125,7 +132,7 @@ Let's look at an example,
 suppressMessages(library(scDDboost))
 ```
 Next, we load the toy simulated example a \textit{SingleCellExperiment} object that we will use for
-identifying and classifying DD genes.\\
+identifying and classifying DD genes.
 ```{r}
 data(sim_dat)
 ```
@@ -149,8 +156,8 @@ pdd = PDD(data = data_counts,cd = conditions, ncores = 1, D = D_c)
 There are 4 input parameters needed to be specified by user, the dataset, the condition label, number of cpu cores used for computation and a distance matrix
 of cells. Other input parameters have default settings.
 
-2.1. clustering of cells
----------------
+###clustering of cells
+
 We provide a default method of getting the distance matrix, archived by `cal_D`, in general `PDD` accept all valid distance matrix. User can also input a cluster label rather than distance matrix for the argument `D`, but the random distancing mechanism which relies on distance matrix will be disabled and `random` should be set to false.  
 
 For the number of sutypes, we provide a default function `detK`, which consider the smallest number of sutypes such that the ratio of difference within cluster between difference between clusters become smaller than a threshold (default setting is 1). 
@@ -176,7 +183,7 @@ $$s^* = \text{argmax}_s\{s,\frac{\Sigma_{i = 1}^s p_{(i)}}{s} \leq 0.05\}$$
 EDD = lsz(pdd,0.05)
 ```
 
-Function `lsz` can be used to get the estimated DD genes under the above transformation
+Function `lsz` extracts the estimated DD genes using the above transformation. 
 
 
 
