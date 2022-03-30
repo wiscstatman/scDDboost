@@ -170,7 +170,7 @@ K <- detK(D_c)
 
 If we set threshold to be 5% then we have estimated DD genes 
 ```{r}
-EDD = which(pdd > 0.95)
+EDD <- which(pdd > 0.95)
 ```
 
 Notice that, pdd is actually local false discovery rate, this is a conservative estimation of DD genes. 
@@ -179,7 +179,7 @@ let index gene by $g = 1,2,...,G$ and let $p_g = P(DD_g | \text{data})$, $p_{(1)
 To control the false discovery rate at 5\%, our positive set is those genes with the $s^*$ smallest lFDR, where
 $$s^* = \text{argmax}_s\{s,\frac{\Sigma_{i = 1}^s p_{(i)}}{s} \leq 0.05\}$$
 ```{r}
-EDD = lsz(pdd,0.05)
+EDD <- lsz(pdd,0.05)
 ```
 
 Function `lsz` extracts the estimated DD genes using the above transformation. 
