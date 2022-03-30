@@ -10,7 +10,7 @@ Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0),EBSeq, BiocParallel, mclust
 biocViews: SingleCell, Software, Clustering, Sequencing, GeneExpression, DifferentialExpression, Bayesian
 Depends: ggplot2
 LinkingTo: Rcpp, RcppEigen, BH
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, BiocStyle
 SystemRequirements: c++11
 Roxygen: list(wrap=FALSE)
 RoxygenNote: 7.1.1
