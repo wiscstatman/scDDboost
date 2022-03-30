@@ -1,6 +1,8 @@
 ---
 title: "scDDboost"
-author: "Xiuyu Ma", "Michael A. Newton"
+author: 
+-"Xiuyu Ma"
+-"Michael A. Newton"
 output: BiocStyle::html_document
 vignette: >
   %\VignetteIndexEntry{scDDboost Tutorial}
