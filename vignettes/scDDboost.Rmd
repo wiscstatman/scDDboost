@@ -1,7 +1,7 @@
 ---
 title: "scDDboost"
-author: "Xiuyu Ma"
-output: rmarkdown::html_vignette
+author: "Xiuyu Ma", "Michael A. Newton"
+output: BiocStyle::html_document
 vignette: >
   %\VignetteIndexEntry{scDDboost Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
@@ -178,8 +178,11 @@ Function `lsz` can be used to get the estimated DD genes under the above transfo
 
 
 
+## Session Information
 
-
+```{r}
+sessionInfo()
+```
 
 
 
