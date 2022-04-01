@@ -18,7 +18,7 @@ lsz <- function(pDD, FDR=0.01)
     
     oe <- sort(ee)
     
-    or = order(ee)
+    or <- order(ee)
     
     ff <- cumsum(oe)/seq_len(length(oe))
     
