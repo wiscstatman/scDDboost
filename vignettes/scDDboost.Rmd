@@ -144,7 +144,7 @@ to be a matrix of normalized counts.
 We run the function PDD 
 ```{r}
 data_counts <- SummarizedExperiment::assays(sim_dat)$counts
-conditions <- colData(sim_dat)$conditions
+conditions <- SummarizedExperiment::colData(sim_dat)$conditions
 rownames(data_counts) <- seq_len(1000)
 
 ##here we use 1 core to compute the distance matrix
