@@ -143,7 +143,7 @@ this example data, that variable is the `condition` variable. Note that the inpu
 to be a matrix of normalized counts.
 We run the function PDD 
 ```{r}
-data_counts <- assays(sim_dat)$counts
+data_counts <- SummarizedExperiment::assays(sim_dat)$counts
 conditions <- colData(sim_dat)$conditions
 rownames(data_counts) <- seq_len(1000)
 
