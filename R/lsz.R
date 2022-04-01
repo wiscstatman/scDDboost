@@ -10,7 +10,7 @@
 
 #' @export
 
-lsz = function(pDD, FDR=0.01)
+lsz <- function(pDD, FDR=0.01)
 
 {
     

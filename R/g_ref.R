@@ -5,7 +5,7 @@
 #' @export
 
 
-g_ref = function(Posp){
+g_ref <- function(Posp){
     .Call("g_ref",Posp = Posp)
 }
 

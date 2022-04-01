@@ -6,12 +6,12 @@
 #' @param K number of subtypes
 #' @return random generated clustering of cells
 
-genRClus = function(D,a,K){
-    n = ncol(D)
+genRClus <- function(D,a,K){
+    n <- ncol(D)
     e <- rgamma(n,shape= a / 2, rate= a )
-    bar = D/outer(e,e,"+")
+    bar <- D/outer(e,e,"+")
     #dst.star <- as.dist(bar)
-    cstar = pam(bar, k = K, diss = TRUE)$clustering
+    cstar <- pam(bar, k = K, diss = TRUE)$clustering
     return(cstar)
 }
 
