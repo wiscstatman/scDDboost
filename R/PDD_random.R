@@ -23,9 +23,9 @@ PDD_random <- function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2){
     cstar <- genRClus(D,a,K)
     
     
-    gcl <- seq_len(1,nrow(data))
+    gcl <- seq_len(nrow(data))
     n1 <- table(cd)[1]
-    sequence <- seq_len(1,K)
+    sequence <- seq_len(K)
     z1<-sequence
     z2<-sequence
     for(i in sequence){

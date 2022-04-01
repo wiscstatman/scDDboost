@@ -12,7 +12,7 @@ rwMLE <- function(D,reltol){
     
     invD <- 1 / D
     n <- ncol(D)
-    for(i in seq_len(1,n)){
+    for(i in seq_len(n)){
         invD[i,i] <- 0
     }
     mm <- sum(invD) / (n * (n - 1))

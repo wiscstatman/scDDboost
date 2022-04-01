@@ -22,9 +22,9 @@ g_cl <- function(data, ncores){
         }
     ,finally = {
     bp <- BiocParallel::MulticoreParam(ncores)
-    clus <- bplapply(seq_len(1,nr),function(i) MCP(data[i,],1,c(Phi_mdf[i],bt[i]))+1,BPPARAM = bp)
+    clus <- bplapply(seq_len(nr),function(i) MCP(data[i,],1,c(Phi_mdf[i],bt[i]))+1,BPPARAM = bp)
     cl <- matrix(0, nrow = nrow(data), ncol = ncol(data))
-    for(i in seq_len(1,length(clus))){
+    for(i in seq_len(length(clus))){
         cl[i,] <- clus[[i]]
     }
     return(cl)

@@ -20,7 +20,7 @@ lsz = function(pDD, FDR=0.01)
     
     or = order(ee)
     
-    ff <- cumsum(oe)/seq_len(1,length(oe))
+    ff <- cumsum(oe)/seq_len(length(oe))
     
     return(or[which(ff < FDR)])
     
