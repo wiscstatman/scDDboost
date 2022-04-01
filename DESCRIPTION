@@ -6,7 +6,7 @@ Date: 2018-10-31
 Authors@R: c(person("Xiuyu","Ma",email="watsonforfun@gmail.com",role = c("cre", "aut")),person("Michael", "A","Newton", email="newton@stat.wisc.edu",role = "ctb"))
 Description: scDDboost is an R package to analyze changes in the distribution of single-cell expression data between two experimental conditions. Compared to other methods that assess differential expression, scDDboost benefits uniquely from information conveyed by the clustering of cells into cellular subtypes. Through a novel empirical Bayesian formulation it calculates gene-specific posterior probabilities that the marginal expression distribution is the same (or different) between the two conditions. The implementation in scDDboost treats gene-level expression data within each condition as a mixture of negative binomial distributions.
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0),EBSeq, BiocParallel, mclust, SingleCellExperiment, cluster, Oscope, SummarizedExperiment, stats, methods
+Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0), ellipsis (>= 0.3.2), vctrs (>= 0.3.8),EBSeq, BiocParallel, mclust, SingleCellExperiment, cluster, Oscope, SummarizedExperiment, stats, methods
 biocViews: SingleCell, Software, Clustering, Sequencing, GeneExpression, DifferentialExpression, Bayesian
 Depends: ggplot2
 LinkingTo: Rcpp, RcppEigen, BH
