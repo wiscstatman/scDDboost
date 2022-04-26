@@ -3,7 +3,7 @@
 #'
 #' @param data normalized preprocessed transcripts
 #' @param cd conditions label
-#' @param ncores number of cores for parallel computing
+#' @param bp bioc parallel parameter
 #' @param D distance matrix of cells or cluster of cells or a given clustering
 #' @param epi tol for change of validity score in determining number of clusters
 #' @param random boolean indicator of whether randomzation has been been implemented on distance matrix
@@ -27,7 +27,7 @@
 #' @export
 
 
-PDD <- function(data, cd, ncores,D, random = TRUE, norm = TRUE, epi = 1, Upper = 1000, nrandom = 50, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
+pdd <- function(data, cd, bp, D, random = TRUE, norm = TRUE, epi = 1, Upper = 1000, nrandom = 50, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
     
     G <- nrow(data)
     
@@ -90,6 +90,7 @@ PDD <- function(data, cd, ncores,D, random = TRUE, norm = TRUE, epi = 1, Upper =
         
         
         Posp <- pat(K)[[1]]
+        REF <- gRef(Posp)
         if(K >= 2){
             res <- EBS(data,ccl,gcl,sz,iter,hp,Posp,stp1,stp2)
             DE <- res$DEpattern
@@ -98,27 +99,12 @@ PDD <- function(data, cd, ncores,D, random = TRUE, norm = TRUE, epi = 1, Upper =
             message("There is only one cluster, no postive")
             return(rep(0,nrow(data)))
         }
-        n1 <- table(cd)[1]
-        z1<-rep(0, K)
-        z2<-rep(0, K)
-        for(i in seq_len(K)){
-            ##current index
-            cur<-which(ccl==i)
-            z1[i]<-length(which(cur<=n1))
-            z2[i]<-length(which(cur>n1))
-        }
-        alpha1 <- rep(1,K)
-        alpha2 <- rep(1,K)
-        post <- MDD(z1, z2, Posp, alpha1, alpha2)
-        np <- nrow(Posp)
-        REF <- g_ref(Posp)
-        modified_p <- t(REF) %*% post
-        PED <- DE%*%modified_p
-        
-        PDD <- 1 - PED
+        tmp <- getZ1Z2(ccl,cd)
+        z1 <- tmp[[1]]
+        z2 <- tmp[[2]
+        PDD <- pddAggregate(z1,z2,Posp,DE,K,REF)
         res <- rep(0,G)
         res[selected] <- PDD
-        
         return(res)
     }
     else{
@@ -139,14 +125,10 @@ PDD <- function(data, cd, ncores,D, random = TRUE, norm = TRUE, epi = 1, Upper =
         # MLE for random weighting parameter
         a <- rwMLE(D,reltol)
         
-        bp <- BiocParallel::MulticoreParam(ncores)
-        result <- bplapply(seq_len(nrandom), function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF,stp1,stp2)}, BPPARAM = bp)
+        result <- bplapply(seq_len(nrandom), function(i) {pddRandom(data, cd, K, D, a, sz, hp, Posp, iter, REF,stp1,stp2)}, BPPARAM = bp)
         
         
-        boot <- matrix(0,nrow=length(result[[1]]),ncol = nrandom)
-        for(i in seq_len(nrandom)){
-            boot[,i] <- result[[i]]
-        }
+        boot <- matrix(unlist(result),ncol = nrandom, byrow=FALSE)
         
         PDD <- rowSums(boot) / nrandom
         res <- rep(0,G)
@@ -157,4 +139,32 @@ PDD <- function(data, cd, ncores,D, random = TRUE, norm = TRUE, epi = 1, Upper =
         return (res)
     }
     
+}
+
+
+
+getZ1Z2 <- function(ccl,cd){
+    K <- max(ccl)
+    n1 <- table(cd)[1]
+    n <- length(ccl)
+    tmp_z1<-table(ccl[1:n1])
+    tmp_z2<-table(ccl[(n1+1):n])
+    z1 <- rep(0,K)
+    z2 <- rep(0,K)
+    z1[as.numeric(names(tmp_z1))] <- as.numeric(tmp_z1)
+    z2[as.numeric(names(tmp_z2))] <- as.numeric(tmp_z2)
+    res <- list(z1,z2)
+    res
+}
+
+
+pddAggregate <- function(z1,z2,Posp,DE,K,REF){
+    alpha1 <- rep(1,K)
+    alpha2 <- rep(1,K)
+    post <- mdd(z1, z2, Posp, alpha1, alpha2)
+    np <- nrow(Posp)
+    modified_p <- t(REF) %*% post
+    PED <- DE%*%modified_p
+    PDD <- 1 - PED
+    PDD
 }
