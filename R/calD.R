@@ -21,7 +21,7 @@ calD <- function(data,bp){
     
     geneMax <- apply(data,1,max)
     tmp <- which(geneMax > 0)
-    cl <- gCl(data[tmp,], ncores)
+    cl <- gCl(data[tmp,], bp)
     
     geneK <- apply(cl,1,max)
     tmp <- which(geneK > 1)

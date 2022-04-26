@@ -21,7 +21,7 @@ gCl <- function(data, bp){
      message("estimation of hyper parameter failed, try naively assigned parameters")
         }
     ,finally = {
-    clus <- bplapply(seq_len(nr),function(i) MCP(data[i,],1,c(Phi_mdf[i],bt[i]))+1,BPPARAM = bp)
+    clus <- bplapply(seq_len(nr),function(i) mcp(data[i,],1,c(Phi_mdf[i],bt[i]))+1,BPPARAM = bp)
     cl <- matrix(0, nrow = nrow(data), ncol = ncol(data))
     for(i in seq_len(length(clus))){
         cl[i,] <- clus[[i]]
