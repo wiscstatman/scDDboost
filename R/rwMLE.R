@@ -6,15 +6,14 @@
 #' @return MLE of random weighting parameter
 
 
-rwMLE <- function(D,reltol){
+rwMle <- function(D,reltol){
     ctrl <- list()
     ctrl$rel.tol <- reltol
     
     invD <- 1 / D
     n <- ncol(D)
-    for(i in seq_len(n)){
-        invD[i,i] <- 0
-    }
+    diag(invD) <- 0
+    
     mm <- sum(invD) / (n * (n - 1))
     vv <- sum(invD * invD) / (n * (n - 1)) - mm^2
     
