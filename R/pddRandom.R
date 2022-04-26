@@ -25,15 +25,14 @@ pddRandom <- function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2){
     
     gcl <- seq_len(nrow(data))
     n1 <- table(cd)[1]
-    sequence <- seq_len(K)
-    z1<-sequence
-    z2<-sequence
-    for(i in sequence){
-        ##current index
-        cur<-which(cstar==i)
-        z1[i]<-length(which(cur<=n1))
-        z2[i]<-length(which(cur>n1))
-    }
+    n <- length(cstar)
+    tmp_z1<-table(cstar[1:n1])
+    tmp_z2<-table(cstar[(n1+1):n])
+    z1 <- rep(0,K)
+    z2 <- rep(0,K)
+    z1[as.numeric(names(tmp_z1))] = as.numeric(tmp_z1)
+    z2[as.numeric(names(tmp_z2))] = as.numeric(tmp_z2)
+    
     alpha1 <- rep(1,K)
     alpha2 <- rep(1,K)
     post <- mdd(z1, z2, Posp, alpha1, alpha2)
