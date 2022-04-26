@@ -17,7 +17,6 @@ lpzgt <- function(z,pp,alpha)
     alpha_b <- tapply(alpha,pp,sum)
     nn <- table(pp)  ## counts block sizes
     res <- sum(lgamma(tt + 1)) - sum(lgamma(z + 1)) + sum(lgamma(alpha_b)) - sum(lgamma(alpha)) + sum(lgamma(z + alpha)) - sum(lgamma(tt + alpha_b))
-    ##res <- sum(lgamma(tt+alpha_b)) + sum(lgamma(nn)) - sum(lgamma(tt+nn))
     res
 }
 
@@ -39,7 +38,6 @@ lpt1t2 <- function(z1,z2,pp,alpha1,alpha2)
     n1 <- sum(z1); n2 <- sum(z2)
     t1 <- tapply(z1,pp,sum) ## sufficient stats over blocks
     t2 <- tapply(z2,pp,sum) ## sufficient stats over blocks
-    #nn <- table(pp)  ## counts block sizes
     beta <- alpha1 + alpha2
     beta_b <- tapply(beta,pp,sum)
     tmp1 <- lgamma(n1+1) + lgamma(n2+1) - sum(lgamma(t1+1)) - sum(lgamma(t2+1))
