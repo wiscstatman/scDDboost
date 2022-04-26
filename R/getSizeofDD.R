@@ -6,10 +6,10 @@
 #' @return number of positive genes
 #' @examples
 #' p_dd = c(0.1,0.99,1,0.05,0.05)
-#' listsize(p_dd)
+#' getSizeofDD(p_dd)
 #' @export
 
-listsize <- function(pDD, FDR=0.01)
+getSizeofDD <- function(pDD, FDR=0.01)
 {
     
     ee <- 1-pDD
