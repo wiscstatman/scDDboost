@@ -59,7 +59,7 @@ lpt1t2 <- function(z1,z2,pp,alpha1,alpha2)
 #' @return posterior of proportion change
 #' @export
 
-MDD <- function(z1, z2, pat, alpha1, alpha2){
+mdd <- function(z1, z2, pat, alpha1, alpha2){
     np <- nrow(pat)
     lpz <- numeric( np )
     for( j in seq_len(nrow(pat)) )
