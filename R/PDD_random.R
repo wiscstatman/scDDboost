@@ -17,7 +17,7 @@
 #' @keywords internal
 #' @export
 
-PDD_random <- function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2){
+pddRandom <- function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2){
     
     
     cstar <- genRClus(D,a,K)
@@ -36,25 +36,14 @@ PDD_random <- function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2){
     }
     alpha1 <- rep(1,K)
     alpha2 <- rep(1,K)
-    post <- MDD(z1, z2, Posp, alpha1, alpha2)
+    post <- mdd(z1, z2, Posp, alpha1, alpha2)
     np <- nrow(Posp)
-    #modified_p <- sapply(1:np,function(i) sum(post[which(ref[[K]][,i] == 1)]))
     modified_p <- t(REF) %*% post
     
     if(K >= 2){
         res <- EBS(data,cstar,gcl,sz,iter,hp,Posp,stp1,stp2)
         DE <- res$DEpattern
     }
-    #    else{
-    #        message("small number of clusters, using exact EBSeq")
-    #       rowmeans = apply(data_counts,1,mean)
-    #        tmp = which(rowmeans > 0)
-    #        data_tmp = data[tmp,]
-    #        res = EBTest(Data = data_tmp, Conditions = cstar, sizeFactors = sz, maxround = 2)
-    #        tmpDE = rep(0, nrow(data))
-    #        tmpDE[tmp] = res$PPDE
-    #        DE = cbind(1 - tmpDE, tmpDE)
-    #    }
     PED <- DE%*%modified_p
     
     
