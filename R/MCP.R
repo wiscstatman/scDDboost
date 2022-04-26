@@ -8,7 +8,7 @@
 ## z shape and scale parameters for gamma distribution
 ## return cluster of x
 
-MCP <- function(x,y = 1,z = c(1,1)) {
+mcp <- function(x,y = 1,z = c(1,1)) {
     if(!is.vector(x)){
         stop("cluster object must be vector")
     }
