@@ -141,7 +141,12 @@ pdd <- function(data, cd, bp, D, random = TRUE, norm = TRUE, epi = 1, Upper = 10
     
 }
 
-
+#' function to get counts of cluster sizes at two conditions
+#'
+#' @param ccl clustering label
+#' @param cd condition label
+#' @return return list of counts
+#' @export
 
 getZ1Z2 <- function(ccl,cd){
     K <- max(ccl)
@@ -157,7 +162,16 @@ getZ1Z2 <- function(ccl,cd){
     res
 }
 
-
+#' function to aggregate intermediate results and get prob of DD
+#'
+#' @param z1 counts of cluster sizes in condition 1
+#' @param z2 counts of cluster sizes in condition 2
+#' @param Posp partition of cells
+#' @param DE posterior probabilities of DE patterns
+#' @param K number of clusters
+#' @param REF reference matrix indicating relation of nested partitions
+#' @return return vector of prob of DD
+#' @export
 pddAggregate <- function(z1,z2,Posp,DE,K,REF){
     alpha1 <- rep(1,K)
     alpha2 <- rep(1,K)
