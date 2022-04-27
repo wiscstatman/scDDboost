@@ -33,6 +33,6 @@ dat = extractInfo(sim_dat)
 data_counts = dat$count_matrix
 cd = dat$condition
 bp <- BiocParallel::MulticoreParam(4)
-D_c = cal_D(data_counts,bp)
-pDD = PDD(data_counts,cd,bp,D_c)
+D_c = calD(data_counts,bp)
+pDD = pdd(data_counts,cd,bp,D_c)
 }
