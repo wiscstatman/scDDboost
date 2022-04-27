@@ -7,23 +7,18 @@
 #' data(sim_dat)
 #' dat = extractInfo(sim_dat)
 #' data_counts = dat$count_matrix
-#' D_c = cal_D(data_counts,4)
+#' bp <- BiocParallel::MulticoreParam(4)
+#' D_c = calD(data_counts,bp)
 #' detK(D_c)
 
 #' @export
 
 detK <- function(D, epi = 1)
 {
-     intra <- rep(0,8)
-     inter <- rep(0,8)
-    
-     for(i in 2:9){
-         clusRes <- pam(D,i,diss = TRUE)
-         intra[i - 1] <- as.numeric(clusRes$objective[1])
-         x <- clusRes$id.med
-         inter[i - 1] <- mean(D[x,x])
-     }
-    
+     
+    tmp <- vapply(2:9,function(x) clusHelper(D,x), c(1,1))
+    intra <- tmp[1,]
+    inter <- tmp[2,]
     s <- intra / inter
     
     ss <- s
@@ -34,4 +29,18 @@ detK <- function(D, epi = 1)
         K <- 9
         }
     return(K)
+}
+
+#' function to get intra and inter distance for clusters
+#'
+#' @param D distance matrix
+#' @param i number of clusters
+#' @return vector of intra and inter distance
+#' @export
+clusHelper <- function(D,i){
+    clusRes <- pam(D,i,diss = TRUE)
+    intra <- as.numeric(clusRes$objective[1])
+    x <- clusRes$id.med
+    inter <- mean(D[x,x])
+    return(c(intra,inter))
 }

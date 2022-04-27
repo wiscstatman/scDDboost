@@ -4,7 +4,7 @@
 #' @param D, distance matrix of cells
 #' @param reltol, tolerance of convergence
 #' @return MLE of random weighting parameter
-
+#' @export
 
 rwMle <- function(D,reltol){
     ctrl <- list()
