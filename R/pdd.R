@@ -22,8 +22,9 @@
 #' dat = extractInfo(sim_dat)
 #' data_counts = dat$count_matrix
 #' cd = dat$condition
-#' D_c = cal_D(data_counts,4)
-#' pDD = PDD(data_counts,cd,2,D_c)
+#' bp <- BiocParallel::MulticoreParam(4)
+#' D_c = calD(data_counts,bp)
+#' pDD = pdd(data_counts,cd,bp,D_c)
 #' @export
 
 
@@ -101,7 +102,7 @@ pdd <- function(data, cd, bp, D, random = TRUE, norm = TRUE, epi = 1, Upper = 10
         }
         tmp <- getZ1Z2(ccl,cd)
         z1 <- tmp[[1]]
-        z2 <- tmp[[2]
+        z2 <- tmp[[2]]
         PDD <- pddAggregate(z1,z2,Posp,DE,K,REF)
         res <- rep(0,G)
         res[selected] <- PDD
