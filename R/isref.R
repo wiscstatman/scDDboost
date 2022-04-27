@@ -4,11 +4,12 @@
 #' @param x a cluster
 #' @param y a cluster
 #' @return whether x refines y
+#' @export
 
 
 
 
-isref <- function(x,y) {
+isRef <- function(x,y) {
     if(length(x) != length(y)){
         stop("x, y must have equal lenth")
     }

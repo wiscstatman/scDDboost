@@ -59,20 +59,20 @@ Proportions of subtypes 1 and 2 changed between the 2 conditions.
 The gene is not DD if subtype 1 and 2 have the same expression level
 
 ```{r,echo = F}
-x1 = rnorm(33,10,2)
-x2 = rnorm(33,10,2)
-x3 = rnorm(33,20,2)
+x1 <- rnorm(33,10,2)
+x2 <- rnorm(33,10,2)
+x3 <- rnorm(33,20,2)
 
-x4 = rnorm(17,10,2)
-x5 = rnorm(50,10,2)
-x6 = rnorm(33,20,2)
+x4 <- rnorm(17,10,2)
+x5 <- rnorm(50,10,2)
+x6 <- rnorm(33,20,2)
 
-df = data.frame(
+df <- data.frame(
   group = c(rep(c("subtype1", "subtype2", "subtype3"),each = 33), c(rep("subtype1",17),rep("subtype2",50),rep("subtype3",33))),
   conditions = factor(c(rep(1,99),rep(2,100))),
   values = c(x1,x2,x3,x4,x5,x6)
   )
-p = ggplot(df,aes(x = conditions,y = values)) + geom_violin() + geom_jitter(aes(colour = group)) + xlab("conditions") + 
+p <- ggplot(df,aes(x = conditions,y = values)) + geom_violin() + geom_jitter(aes(colour = group)) + xlab("conditions") + 
   ylab("gene expressions")
   
 
@@ -87,20 +87,20 @@ p + theme(panel.background = element_rect(
 
 For subtype 1 and 2 have different expression level, there is different distribution
 ```{r, echo = F}
-x1 = rnorm(33,10,2)
-x2 = rnorm(33,20,2)
-x3 = rnorm(33,30,2)
+x1 <- rnorm(33,10,2)
+x2 <- rnorm(33,20,2)
+x3 <-  rnorm(33,30,2)
 
-x4 = rnorm(17,10,2)
-x5 = rnorm(50,20,2)
-x6 = rnorm(33,30,2)
+x4 <- rnorm(17,10,2)
+x5 <- rnorm(50,20,2)
+x6 <- rnorm(33,30,2)
 
-df = data.frame(
+df <- data.frame(
   group = c(rep(c("subtype1", "subtype2", "subtype3"),each = 33), c(rep("subtype1",17),rep("subtype2",50),rep("subtype3",33))),
   conditions = factor(c(rep(1,99),rep(2,100))),
   values = c(x1,x2,x3,x4,x5,x6)
   )
-p = ggplot(df,aes(x = conditions,y = values)) + geom_violin() + geom_jitter(aes(colour = group)) + xlab("conditions") + 
+p <- ggplot(df,aes(x = conditions,y = values)) + geom_violin() + geom_jitter(aes(colour = group)) + xlab("conditions") + 
   ylab("gene expressions")
   
 
@@ -124,7 +124,7 @@ p + theme(panel.background = element_rect(
 ##Posterior probability of a gene being DD 
 
 
-`PDD` is the core function developed to quantify the
+`pdd` is the core function developed to quantify the
 posterior probabilities of DD for input genes. 
 Let's look at an example,
 
@@ -147,17 +147,18 @@ data_counts <- SummarizedExperiment::assays(sim_dat)$counts
 conditions <- SummarizedExperiment::colData(sim_dat)$conditions
 rownames(data_counts) <- seq_len(1000)
 
-##here we use 1 core to compute the distance matrix
-D_c <- cal_D(data_counts,1)
+##here we use 2 cores to compute the distance matrix
+bp <- BiocParallel::MulticoreParam(2)
+D_c <- calD(data_counts,bp)
 
-pdd <- PDD(data = data_counts,cd = conditions, ncores = 1, D = D_c)
+pdd <- pdd(data = data_counts,cd = conditions, bp = bp, D = D_c)
 ```
 There are 4 input parameters needed to be specified by user, the dataset, the condition label, number of cpu cores used for computation and a distance matrix
 of cells. Other input parameters have default settings.
 
 ###clustering of cells
 
-We provide a default method of getting the distance matrix, archived by `cal_D`, in general `PDD` accept all valid distance matrix. User can also input a cluster label rather than distance matrix for the argument `D`, but the random distancing mechanism which relies on distance matrix will be disabled and `random` should be set to false.  
+We provide a default method of getting the distance matrix, archived by `calD`, in general `pdd` accept all valid distance matrix. User can also input a cluster label rather than distance matrix for the argument `D`, but the random distancing mechanism which relies on distance matrix will be disabled and `random` should be set to false.  
 
 For the number of sutypes, we provide a default function `detK`, which consider the smallest number of sutypes such that the ratio of difference within cluster between difference between clusters become smaller than a threshold (default setting is 1). 
 
@@ -179,10 +180,10 @@ let index gene by $g = 1,2,...,G$ and let $p_g = P(DD_g | \text{data})$, $p_{(1)
 To control the false discovery rate at 5\%, our positive set is those genes with the $s^*$ smallest lFDR, where
 $$s^* = \text{argmax}_s\{s,\frac{\Sigma_{i = 1}^s p_{(i)}}{s} \leq 0.05\}$$
 ```{r}
-EDD <- lsz(pdd,0.05)
+EDD <- getDD(pdd,0.05)
 ```
 
-Function `lsz` extracts the estimated DD genes using the above transformation. 
+Function `getDD` extracts the estimated DD genes using the above transformation. 
 
 
 
