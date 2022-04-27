@@ -124,7 +124,7 @@ pdd <- function(data, cd, bp, D, random = TRUE, norm = TRUE, epi = 1, Upper = 10
         REF <- gRef(Posp)
         
         # MLE for random weighting parameter
-        a <- rwMLE(D,reltol)
+        a <- rwMle(D,reltol)
         
         result <- bplapply(seq_len(nrandom), function(i) {pddRandom(data, cd, K, D, a, sz, hp, Posp, iter, REF,stp1,stp2)}, BPPARAM = bp)
         
