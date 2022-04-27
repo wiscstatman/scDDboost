@@ -121,7 +121,7 @@ pdd <- function(data, cd, bp, D, random = TRUE, norm = TRUE, epi = 1, Upper = 10
         }
         
         Posp <- pat(K)[[1]]
-        REF <- g_ref(Posp)
+        REF <- gRef(Posp)
         
         # MLE for random weighting parameter
         a <- rwMLE(D,reltol)
