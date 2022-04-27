@@ -21,7 +21,7 @@ Package used to score evidence of differential distribution in single-cell RNA-s
 Maintainer: \packageMaintainer{scDDboost}
 }
 \references{
-https://www.biorxiv.org/content/10.1101/655795v1
+https://projecteuclid.org/journals/annals-of-applied-statistics/volume-15/issue-2/A-compositional-model-to-assess-expression-changes-from-single-cell/10.1214/20-AOAS1423.short
 }
 \keyword{ Empirical Bayes, clustering, random weighting, local false discovery rate }
 \seealso{
