@@ -58,15 +58,10 @@ lpt1t2 <- function(z1,z2,pp,alpha1,alpha2)
 #' @export
 
 mdd <- function(z1, z2, pat, alpha1, alpha2){
-    #np <- nrow(pat)
-    #lpz <- numeric( np )
+
     
     lpz <- apply(pat,1,function(x) lpzgt(z1,x,alpha1) + lpzgt(z2,x,alpha2) + lpt1t2(z1,z2,x,alpha1,alpha2))
-    #for( j in seq_len(nrow(pat)) )
-    #{
-        #pp <- pat[j,]
-        #lpz[j] <- lpzgt(z1,pp,alpha1)+lpzgt(z2,pp,alpha2)+lpt1t2(z1,z2,pp,alpha1,alpha2)
-    #}
+    
     post <- exp(lpz-max(lpz))
     post <- post/sum(post)
     return(post)
