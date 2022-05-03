@@ -153,8 +153,8 @@ getZ1Z2 <- function(ccl,cd){
     K <- max(ccl)
     n1 <- table(cd)[1]
     n <- length(ccl)
-    tmp_z1<-table(ccl[1:n1])
-    tmp_z2<-table(ccl[(n1+1):n])
+    tmp_z1<-table(ccl[seq_len(n1)])
+    tmp_z2<-table(ccl[seq.int(n1 + 1,n)])
     z1 <- rep(0,K)
     z2 <- rep(0,K)
     z1[as.numeric(names(tmp_z1))] <- as.numeric(tmp_z1)
