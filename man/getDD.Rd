@@ -18,6 +18,6 @@ index of positive genes
 index of DD genes under FDR control
 }
 \examples{
-p_dd = c(0.01,0.99,0.7,0.5)
+p_dd <- c(0.01,0.99,0.7,0.5)
 getDD(p_dd)
 }

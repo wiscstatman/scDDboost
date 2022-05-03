@@ -19,9 +19,9 @@ determine the number of clusters
 }
 \examples{
 data(sim_dat)
-dat = extractInfo(sim_dat)
-data_counts = dat$count_matrix
+dat <- extractInfo(sim_dat)
+data_counts <- dat$count_matrix
 bp <- BiocParallel::MulticoreParam(4)
-D_c = calD(data_counts,bp)
+D_c <- calD(data_counts,bp)
 detK(D_c)
 }
