@@ -5,7 +5,7 @@
 #' @param FDR fdr to be controlled
 #' @return number of positive genes
 #' @examples
-#' p_dd = c(0.1,0.99,1,0.05,0.05)
+#' p_dd <- c(0.1,0.99,1,0.05,0.05)
 #' getSizeofDD(p_dd)
 #' @export
 

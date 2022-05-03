@@ -19,12 +19,12 @@
 
 #' @examples
 #' data(sim_dat)
-#' dat = extractInfo(sim_dat)
-#' data_counts = dat$count_matrix
-#' cd = dat$condition
+#' dat <- extractInfo(sim_dat)
+#' data_counts <- dat$count_matrix
+#' cd <- dat$condition
 #' bp <- BiocParallel::MulticoreParam(4)
-#' D_c = calD(data_counts,bp)
-#' pDD = pdd(data_counts,cd,bp,D_c)
+#' D_c <- calD(data_counts,bp)
+#' pDD <- pdd(data_counts,cd,bp,D_c)
 #' @export
 
 

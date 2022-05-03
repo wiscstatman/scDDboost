@@ -5,7 +5,7 @@
 #' @param FDR fdr to be controlled
 #' @return index of positive genes
 #' @examples
-#' p_dd = c(0.01,0.99,0.7,0.5)
+#' p_dd <- c(0.01,0.99,0.7,0.5)
 #' getDD(p_dd)
 
 #' @export

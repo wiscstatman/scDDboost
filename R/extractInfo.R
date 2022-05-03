@@ -5,7 +5,7 @@
 #'
 #' @examples
 #' data(sim_dat) 
-#' dat = extractInfo(sim_dat)
+#' dat <- extractInfo(sim_dat)
 
 #' @export
 
