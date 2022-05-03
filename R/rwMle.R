@@ -17,7 +17,7 @@ rwMle <- function(D,reltol){
     mm <- sum(invD) / (n * (n - 1))
     vv <- sum(invD * invD) / (n * (n - 1)) - mm^2
     
-    fit3 <- suppressWarnings(nlminb( start=c(2,2), objective=LL, x=D, d0 = mm / vv, lower=c(0,0), control = ctrl))
+    fit3 <- nlminb( start=c(2,2), objective=LL, x=D, d0 = mm / vv, lower=c(0,0), control = ctrl)
     
     a0 <- fit3$par[1]
     a1 <- fit3$par[2]
