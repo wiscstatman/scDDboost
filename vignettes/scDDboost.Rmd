@@ -17,7 +17,7 @@ library(BiocStyle)
 knitr::opts_chunk$set(warning=FALSE, error=FALSE, message=FALSE)
 ```
 
-#Installation
+# Installation
 
 The package can be installed from bioconductor
 ```{r,eval=FALSE}
@@ -28,7 +28,7 @@ BiocManager::install("scDDboost")
 Issue can be reported at "https://github.com/wiscstatman/scDDboost/issues"
 
 
-#Introduction
+# Introduction
 scDDboost scores evidence of a gene being differentially distributed(DD) across two conditions for single cell RNA-seq data. Higher resolution brings several chanllenges for analyzing the data, specifically, the distribution of gene expression tends to have high prevalence of zero and multi-modes.
 To account for those characteristics and utilizing some biological intuition,
 we view the expression values sampled from a pool of cells mixed by distinct cellular subtypes blind to condition label. Consequently, the distributional change can be fully determined by the
@@ -122,7 +122,7 @@ p + theme(panel.background = element_rect(
 
 
 
-#Posterior probability of a gene being DD 
+# Posterior probability of a gene being DD 
 
 
 `pdd` is the core function developed to quantify the
@@ -157,7 +157,7 @@ pdd <- pdd(data = data_counts,cd = conditions, bp = bp, D = D_c)
 There are 4 input parameters needed to be specified by user, the dataset, the condition label, number of cpu cores used for computation and a distance matrix
 of cells. Other input parameters have default settings.
 
-##clustering of cells
+## clustering of cells
 
 We provide a default method of getting the distance matrix, archived by `calD`, in general `pdd` accept all valid distance matrix. User can also input a cluster label rather than distance matrix for the argument `D`, but the random distancing mechanism which relies on distance matrix will be disabled and `random` should be set to false.  
 
