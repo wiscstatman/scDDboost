@@ -142,7 +142,7 @@ cells and 1000 genes. The colData slot (which contains a dataframe of metadata f
 cells) should have a column that contains the biological condition or grouping of interest. In
 this example data, that variable is the `condition` variable. Note that the input gene set needs
 to be a matrix of normalized counts.
-We run the function PDD 
+We run the function `pdd` 
 ```{r}
 data_counts <- SummarizedExperiment::assays(sim_dat)$counts
 conditions <- SummarizedExperiment::colData(sim_dat)$conditions
@@ -163,7 +163,7 @@ We provide a default method of getting the distance matrix, archived by `calD`, 
 
 For the number of sutypes, we provide a default function `detK`, which consider the smallest number of sutypes such that the ratio of difference within cluster between difference between clusters become smaller than a threshold (default setting is 1). 
 
-If user have other ways to determine $K$, $K$ should be specified in `PDD`. 
+If user have other ways to determine $K$, $K$ should be specified in `pdd`. 
 ```{r}
 ## determine the number of subtypes
 K <- detK(D_c)
