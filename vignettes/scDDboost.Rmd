@@ -152,7 +152,7 @@ rownames(data_counts) <- seq_len(1000)
 bp <- BiocParallel::MulticoreParam(2)
 D_c <- calD(data_counts,bp)
 
-pdd <- pdd(data = data_counts,cd = conditions, bp = bp, D = D_c)
+ProbDD <- pdd(data = data_counts,cd = conditions, bp = bp, D = D_c)
 ```
 There are 4 input parameters needed to be specified by user, the dataset, the condition label, number of cpu cores used for computation and a distance matrix
 of cells. Other input parameters have default settings.
@@ -172,7 +172,7 @@ K <- detK(D_c)
 
 If we set threshold to be 5% then we have estimated DD genes 
 ```{r}
-EDD <- which(pdd > 0.95)
+EDD <- which(ProbDD > 0.95)
 ```
 
 Notice that, pdd is actually local false discovery rate, this is a conservative estimation of DD genes. 
@@ -181,7 +181,7 @@ let index gene by $g = 1,2,...,G$ and let $p_g = P(DD_g | \text{data})$, $p_{(1)
 To control the false discovery rate at 5\%, our positive set is those genes with the $s^*$ smallest lFDR, where
 $$s^* = \text{argmax}_s\{s,\frac{\Sigma_{i = 1}^s p_{(i)}}{s} \leq 0.05\}$$
 ```{r}
-EDD <- getDD(pdd,0.05)
+EDD <- getDD(ProbDD,0.05)
 ```
 
 Function `getDD` extracts the estimated DD genes using the above transformation. 
